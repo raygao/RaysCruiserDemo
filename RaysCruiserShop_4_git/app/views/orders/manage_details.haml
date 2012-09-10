@@ -1,0 +1,54 @@
+%h1 Item(s) in "#{@order.name}"
+
+%table
+  %tr
+    %th Order-ID
+    %th Order
+    %th Item
+    %th Owner
+    %th Quantity
+    %th
+    %th
+    %th
+
+  - @order_items.each do |order_item|
+    %tr
+      %td= "#{order_item.order.id}"
+      %td= "#{order_item.order.name}"
+      %td= order_item.item_id
+      %td= "#{order_item.owner.first_name} #{order_item.owner.last_name}"
+      %td= order_item.quantity
+      %td= link_to 'Show', order_order_item_path(@order, order_item), :class => 'button gray'
+      %td= link_to 'Edit', edit_order_order_item_path(@order, order_item), :class => 'button gray'
+      %td= link_to 'Destroy', order_order_item_path(@order, order_item), :confirm => 'Are you sure?', :method => :delete, :class => 'button gray'
+
+%br
+
+%hr/
+%br/
+%h2 Add more Items to "#{@order.name}"
+%table
+  %tr
+    %th Name
+    %th Image
+    %th Description
+    %th Price
+    %th Item type
+    %th Remaining Quantity
+    %th
+    %th
+
+  - @available_items.each do |item|
+    %tr
+      %td= item.name
+      %td= image_tag item.image_url(:thumb).to_s
+      %td= item.description
+      %td= "$" + item.price.to_s
+      %td= item.item_type.name
+      %td= item.quantity
+      %td= link_to 'Show', item, :class => 'button gray'
+      %td= link_to 'Add to Order', new_order_order_item_path(:item_id => item.id), :class => 'button gray'
+
+%br
+
+= link_to "See Containing Order", order_path(@order), :class => 'button gray'

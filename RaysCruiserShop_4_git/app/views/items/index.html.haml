@@ -1,0 +1,31 @@
+%h1 Listing Items
+
+%table
+  %tr
+    %th Name
+    %th Image
+    %th Description
+    %th Price
+    %th Item type
+    %th Remaining Quantity
+    %th
+    %th
+    %th
+
+  - @items.each do |item|
+    %tr
+      %td= item.name
+      %td= image_tag item.image_url(:thumb).to_s
+      %td= item.description
+      %td= "$" + item.price.to_s
+      %td= item.item_type.name
+      %td= item.quantity
+      %td= link_to 'Show', item, :class => 'button gray'
+      %td= link_to 'Edit', edit_item_path(item), :class => 'button gray'
+      %td= link_to 'Remove', item, :confirm => 'Are you sure?', :method => :delete, :class => 'button gray'
+    %tr
+      %td{:colspan =>'5'}= '&nbsp;'.html_safe
+
+%br
+
+= link_to 'New Item', new_item_path, :class => 'button'

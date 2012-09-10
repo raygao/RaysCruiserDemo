@@ -1,0 +1,288 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0
+}
+body {
+	font-family:Helvetica, Verdana, Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	color:#282828
+}
+* a {
+	text-decoration:none
+}
+#nav .pageWidth, #content .pageWidth, #footer .pageWidth {
+	width:980px;
+	margin:0 auto;
+	position:relative
+}
+.hr {
+	margin:10px 0;
+	border-bottom:1px dotted #43748f;
+	height:2px
+}
+.textInfo{font-size:11px; color:#043850;}
+/* START: Position Selectors */
+.fl {
+	float:left
+}
+.fr {
+	float:right
+}
+.floatFix {
+	height:0;
+	clear:both
+}
+.marLeft10 {
+	margin-left:10px
+}
+.marRt10 {
+	margin-right:10px
+}
+.marTop10 {
+	margin-top:10px
+}
+.marBot10 {
+	margin-bottom:10px
+}
+.mar10 {
+	margin:10px
+}
+.mar5 {
+	margin:5px
+}
+/* END: Position Selectors */
+
+/* START: Navigation Selectors */
+#nav {
+	position:fixed;
+	top:0;
+	width:100%;
+	z-index:10;
+	background:#fff
+}
+#nav .topBar {
+	margin: 0;
+	background:#D1D1BA;
+	border:2px solid  #999966;
+	height: 75px;
+	box-shadow:2px 2px 5px #555;
+	border-left:none;
+	border-right:none
+}
+#nav .welcome {
+	color:#043850;
+	font-weight:bold;
+	height:25px;
+	text-align:right;
+	padding-top:8px
+}
+#nav .logo {
+	position:absolute;
+	top:-24px;
+	left:0px;
+	z-index:20;
+	display:block;
+	width:200px;
+	height:116px;
+	background:url(/assets/rays_cruiser_shop.png) top left no-repeat
+}
+#nav .logo:hover {
+	background:url(/assets/rays_cruiser_shop_hover.png)     /*TODO use slideshow background */
+}
+#nav .menu li {
+	display:inline-block;
+	float:left;
+}
+#nav .menu li a {
+	display:block;
+	box-shadow:inset 0px 0px 5px #000;
+	background:#43748f;
+	width:150px;
+	margin: 0 0 0 10px;
+	color:#FFF;
+	font-size:2em;
+	font-weight:bold;
+	text-align:center;
+	border:1px solid #43748f;
+	border-bottom:0;
+	border-top:0;
+	padding:18px 0;
+	text-shadow:1px 1px 1px #333;
+}
+#nav .menu li a:hover {
+	color:#A6E2FF;
+	background:#069;
+}
+#nav .menu li.current a{background:#666; cursor:default}
+#nav .menu li.current a:hover{color:#fff}
+/* END: Navigation Selectors */
+
+#content {
+	margin-top:150px
+}
+#content .main {
+	background:#fff;
+	border:3px solid #43748f;
+	min-height:300px;
+	box-shadow:0 0 5px #333;
+	padding-bottom:20px;
+	position:relative;
+}
+#content .main h1 {
+	font-size:2em;
+	color: #43748f;
+	margin:-3px 0 5px 0;
+	padding-bottom:3px;
+	border-bottom:1px dotted #43748f;
+}
+#content .main h2 {
+	font-size:1.4em;
+	color: #43748f;
+	margin:-3px 0 5px 0;
+	padding-bottom:3px;
+	border-bottom:1px dotted #ccc;
+}
+#content .main h3 {
+	font-size:1.2em;
+	color: #43748f;
+	margin:-3px 0 5px 0;
+	padding-bottom:3px;
+}
+#content .main .inner {
+	margin:10px;
+}
+#content .main p {
+	font-size:14px;
+	line-height:18px;
+	margin-bottom:10px;
+}
+#content .form1Col{width:500px; margin:20px auto}
+#content input[type=text], #content input[type=password], #content input[type=email], #content textarea {
+	border-radius:7px;
+	border:1px solid #43748f;
+	font-size:22px;
+	color:#43748f;
+	padding:5px;
+	box-shadow:inset 1px 1px 3px #43748f;
+	margin:5px 0 10px;
+	width:520px;
+    max-height: 200px;
+}
+#content input.large[type=text]{width:400px}
+#content textarea{font-size:1.4em; font-family:Arial, Helvetica, sans-serif}
+#content textarea.large{width:400px; height:180px}
+#content label {
+	font-size:16px;
+	display:inline;
+}
+#content .buttonContainer {
+	margin:0px auto;
+	width:500px
+}
+#content .buttonContainer.fullWidth{width:100%}
+#content .button{
+	font-weight:bold;
+	font-size:14px;
+	color: #123d54;
+	padding: 5px 20px;
+	background: -moz-linear-gradient( top, #afd9fa 0%, #588fad);
+	background: -webkit-gradient( linear, left top, left bottom, from(#afd9fa), to(#588fad));
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: 1px solid #003366;
+	-moz-box-shadow: 0px 1px 3px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(255,255,255,1);
+	-webkit-box-shadow:  0px 1px 3px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(255,255,255,1);
+	text-shadow:1px 0px 1px #fff;
+	margin-left:10px;
+}
+#content .button:hover {
+    background: #17ae17;
+}
+#content .button.fl{margin-left:0}
+#content .button.blue {
+    color: #050505;
+    background: -moz-linear-gradient(  top,  #ffffff 0%,  #ebebeb 50%,  #dbdbdb 50%,  #b5b5b5);
+    background: -webkit-gradient(  linear, left top, left bottom,  from(#90a3ff),  color-stop(0.50, #ebebeb),  color-stop(0.50, #dbdbdb),  to(#3831b5));
+    border: 1px solid #949494;
+    -moz-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 2px rgba(255,255,255,1);
+    -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 2px rgba(255,255,255,1);
+}
+#content .button.blue:hover {
+    background: #cd4680;
+}
+
+#content .button.gray {
+	color: #050505;
+	background: -moz-linear-gradient(  top,  #ffffff 0%,  #ebebeb 50%,  #dbdbdb 50%,  #b5b5b5);
+	background: -webkit-gradient(  linear, left top, left bottom,  from(#ffffff),  color-stop(0.50, #ebebeb),  color-stop(0.50, #dbdbdb),  to(#b5b5b5));
+	border: 1px solid #949494;
+	-moz-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 2px rgba(255,255,255,1);
+	-webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 2px rgba(255,255,255,1);
+}
+#content .button.gray:hover {
+    background: #cd5419;
+}
+
+#content .button.disabled {
+    color: #85888a;
+    background: -moz-linear-gradient(  top,  #ffffff 0%,  #ebebeb 50%,  #dbdbdb 50%,  #b5b5b5);
+   	background: -webkit-gradient(  linear, left top, left bottom,  from(#ffffff),  color-stop(0.50, #ebebeb),  color-stop(0.50, #dbdbdb),  to(#b5b5b5));
+}
+#content .button.disabled:hover {
+    background: -moz-linear-gradient(  top,  #ffffff 0%,  #ebebeb 50%,  #dbdbdb 50%,  #b5b5b5);
+   	background: -webkit-gradient(  linear, left top, left bottom,  from(#ffffff),  color-stop(0.50, #ebebeb),  color-stop(0.50, #dbdbdb),  to(#b5b5b5));
+}
+
+#content .button.small{padding:5px 10px; font-size:12px;}
+#content .dataTable{width:100%; border:1px solid #f1f1f1; border-top:none; border-left:none}
+#content .dataTable tr.alt{background:#ECF5FF}
+#content .dataTable th{background:#43748f; color:#fff; padding:4px; border:1px solid #f1f1f1;border-bottom:none; border-right:none}
+#content .dataTable td{font-size:11px; padding:4px;border:1px solid #f1f1f1; border-bottom:none; border-right:none}
+#content .dataTable td:first-child, #content .dataTable td:last-child{text-align:center}
+
+#footer {
+	margin:30px 0;
+	width:100%;
+	background:#D1D1BA;
+	border:2px solid #999966;
+	height: 35px;
+	box-shadow:2px 2px 5px #555;
+	border-left:none;
+	border-right:none
+}
+#footer .inner {
+	margin:10px auto;
+	color:#00000A;
+	font-weight:bold
+}
+
+label {
+    vertical-align: top;
+    display: block;
+    float: left;
+    width: 150px;
+}
+
+.required {
+    background: #b2b5ff;
+    width: 550px;
+}

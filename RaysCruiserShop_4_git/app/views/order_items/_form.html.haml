@@ -1,0 +1,29 @@
+= form_for ([@order, @order_item]) do |f|
+  -if @order_item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@order_item.errors.count, "error")} prohibited this order_item from being saved:"
+      %ul
+        - @order_item.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    / hidden field, related to an Order.
+    = f.label "Order Name"
+    = link_to @order.name, order_path(@order)
+    = f.hidden_field :order_id
+  .field
+    = f.label "Item Name"
+    = link_to @order_item.item.name, item_path(@order_item.item)
+    = f.hidden_field :item_id
+  .field
+    = f.label :note
+    = f.text_field :note
+  -unless f.object.new_record?
+    .field
+      = f.label :owner_id
+      = @order_item.owner.first_name + ' ' + @order_item.owner.last_name
+  .field
+    = f.label :quantity
+    = f.number_field :quantity, :min => 1, :max => @order_item.item.quantity
+  .actions
+    = f.submit 'Save', :class => 'button '

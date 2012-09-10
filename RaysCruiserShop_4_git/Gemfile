@@ -1,0 +1,86 @@
+source 'http://rubygems.org'
+
+# read this on using Ruby 1.9.3 on Heroku
+#  -> http://blog.heroku.com/archives/2012/5/9/multiple_ruby_version_support_on_heroku/
+
+#ruby '1.9.3' # requried to use Mongoid 3.0.x
+gem 'rails', '3.2.3'
+
+gem 'httparty' # use httparty gem to call SAP server.
+
+# Data persistence / parsing section
+gem 'mongoid'  # using Mongoid 3.0.x as the ORM framework
+gem "mongoid-rspec", ">= 1.4.4", :group => :test
+gem 'nokogiri' #XML parsing gem
+
+gem 'databasedotcom'
+#leverage te databasedotcom rails helper gem
+# gem 'databasedotcom-rails'
+
+# File / Cloud storage section
+gem 'carrierwave' # for file upload
+gem 'carrierwave-mongoid' #mongoid version of carrierwave
+gem 'fog' # Cloud management / access utility, see https://github.com/fog/fog
+gem 'fastimage'   #Used to quickly determine image size, i.e. width x height
+gem 'rmagick' # image manipulation gem
+
+#gem 'css-lightbox' #  see https://github.com/ericam/compass-css-lightbox
+
+gem 'moped'
+
+# To use Jbuilder templates for JSON
+ gem 'jbuilder'
+
+# Authorization /Security Section
+gem 'devise' # frontend authentication
+gem 'canable' #object permission manager
+gem 'yajl-ruby'  #using Yajl for YAML file parsing
+
+# Template and Javascript Section
+gem 'jquery-rails' #using jquery for rails' javascript framework.
+
+gem "haml", ">= 3.1.4"   # using HAML template in lieu of ERB.
+gem "haml-rails", ">= 0.3.4", :group => :development  # HAML rail template for Rails plugin
+
+gem "twitter-bootstrap-rails", ">= 2.0.3", :group => :assets  # using SASS for stylingsheet
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer'
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+
+group :test, :development do
+  # Pretty printed test output
+  gem 'turn', '0.8.2', :require => false
+  gem 'cucumber-rails', :require => false   # Behvaior Driven Development, this also depends on RSpec and Cucumber Gems. (DSL / higher level)
+  gem 'rspec-rails' # RSpec is the lower level (object-level) testing for BDD.
+  gem 'capybara' #wb testing automation
+  gem 'launchy' # cross platform launching tool
+  gem 'spork' #test-server for BDD
+  gem 'database_cleaner' #clean database before testing
+  gem 'factory_girl_rails' # Fixture replacement for testing, see 'factory_girl' gem
+end
+
+group :development do
+# To use debugger
+#  gem 'debugger'
+  gem 'ruby-debug-base19', '0.11.26' # see my blog  http://are4.us/raysblog/?p=2950    & http://devnet.jetbrains.net/thread/431168
+  gem 'ruby-debug-ide19', '0.4.12'
+  gem 'ruby-debug-base19x', '0.11.30.pre10'   #this is due to a problem with Ruby 1.9.3, Also, need LineCache 0.5.13 gem
+end
+
+group :production do
+# Use unicorn as the app server
+ gem 'unicorn'
+end
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'

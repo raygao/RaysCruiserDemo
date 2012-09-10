@@ -1,0 +1,63 @@
+= Welcome to Ray's cruiser Shop
+== Background Information
+This demo simulates how business processes flow across multiple technology platforms, i.e. Ruby, Salesforce, and ERP
+sytem. In this scenario, Ray's Cruiser Shop, a custom bicycle shop,
+ * sells bicycle parts online; it's portal is suitable for SEO (Search Engine Optimization) via meta-tags.
+ * manages customer relationship - i.e. product discount, reporting & dashboard (business intelligence & analytics)
+ * maintains ERP - production scheduling, inventory control, ...
+
+In large enterprises, there are multiple applications / platforms / technologies. Overlooking its complicated surface &
+and examing from management point view, projects get their positive or negative ROI (Return On Investment) from how well
+they are able to carry-on and support smooth running business processes, essential to company's core business activities.
+
+Likewise, in our scenario, we have three different applications.
+1. Front-end Custom Portal - A Ruby-On-Rails application
+2. Salesforce - CRM for Business Analytics, Dashboard, and Reporting
+3. ERP system - A Java (Spring) application, which can be hosted in a variety of application server, including SAP NetWeaver.
+
+== Benefit:
+1. Perservation of existing IT investment, vis-a-vis, ERP, SCM, home grown application, etc.
+2. DatenSchutz (Data Protection), critical data can be stored in-house, and they can be seamless meshed up with cloud-based application.
+3. Leveraging best-of-breed technologies - Certain platforms are better than others at certain things.
+
+== Enabling Technologies
+1. REST API / JSON
+2. Community Data Model (a combination of NoSQL + domain model, i.e. Salesforce)
+3. Ruby, Apex, Spring, ...
+
+== Setup Instruction for the Ruby Application
+This Ruby application is quite easy to setup.
+
+=== prerequisites
+* $ Install ImageMagick -> sudo port install ImageMagick
+    Set up machine.
+    * install iconv + openssl (needed for CarrierWave Gem)
+    * rvm pkg install iconv
+    * rvm pkg install openssl
+    * rvm reinstall 1.9.3 --with-openssl-dir=~/.rvm/usr --with-iconv-dir=~/.rvm/usr
+
+* Use RVM + Ruby 1.9.3 -> $ rvm install ruby 1.9.3
+* $ rvm --default use 1.9.3
+* upgrade Use Mongoid 3.0.x + Moped,
+* fix database cleaner
+
+=== Configuration
+Majority of the application configuration is in the 'config.json' file. At minimum, you will need to set up
+1. SendGrid
+2. AWS
+3. SAP Server (Spring application) - Used to retrieve Product Delivery Date via Remot REST call.
+
+        "sendgrid":{
+            "username":"<username>",
+            "password":"<password>"
+        },
+        "aws": {
+            "key": "<key>",
+            "secret": "<secret>"
+        },
+        "sap_server": {
+            "host": "<Hostname or IP address>",
+            "port": "<port number>",
+        }
+
+<i>In the feature, those configuration will be moved to the database, inside a MongoDB.</i>

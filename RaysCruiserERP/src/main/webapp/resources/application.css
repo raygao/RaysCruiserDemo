@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+.nav_link{
+	font-weight:bold;
+	font-size:14px;
+	color: #123d54;
+	padding: 5px 20px;
+	background: -moz-linear-gradient( top, #afd9fa 0%, #588fad);
+	background: -webkit-gradient( linear, left top, left bottom, from(#afd9fa), to(#588fad));
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: 1px solid #003366;
+	-moz-box-shadow: 0px 1px 3px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(255,255,255,1);
+	-webkit-box-shadow:  0px 1px 3px rgba(000,000,000,0.5), inset 0px 0px 1px rgba(255,255,255,1);
+	text-shadow:1px 0px 1px #fff;
+	margin-left:10px;
+}
+.nav_link:hover {
+    background: #17ae17;
+}
+
+.header_text {
+	color: #66FFCC;
+	background-color: #FFFF00;
+	font-weight:bold;
+	font-size:40px;
+	padding: 15px 40px;
+	background: -moz-linear-gradient( top, #afd9fa 0%, #588fad);
+	background: -webkit-gradient( linear, left top, left bottom, from(#afd9fa), to(#588fad));
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 1px solid #003366;
+	margin-left:250px;
+	margin-right:250px;
+}

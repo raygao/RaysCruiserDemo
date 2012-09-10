@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @item.name
+%p
+  %b Image:
+  =image_tag @item.image_url().to_s
+%p
+  %b Description:
+  = @item.description
+%p
+  %b Price:
+  = "$" + @item.price.to_s
+%p
+  %b Item type:
+  = @item.item_type.name
+
+%p
+  %b Remaining Quantity:
+  = @item.quantity
+
+- if current_user.user_role.name == 'admin'
+  = link_to 'Edit', edit_item_path(@item)
+  \|
+  = link_to 'Back', items_path

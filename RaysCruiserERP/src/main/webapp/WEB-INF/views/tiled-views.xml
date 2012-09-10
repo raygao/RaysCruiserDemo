@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="blah" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/zblah.jsp" />
+	</definition>
+
+	<definition name="home" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+	</definition>
+
+	<!--  Orders Controller -->
+	<definition name="orders/new" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/orders/new.jsp" />
+	</definition>
+	
+	<definition name="orders/edit" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/orders/edit.jsp" />
+	</definition>
+
+	<definition name="orders/set_delivery" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/orders/set_delivery.jsp" />
+	</definition>
+
+	<definition name="orders/show" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/orders/show.jsp" />
+	</definition>
+
+	<definition name="orders/index" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/orders/index.jsp" />
+	</definition>
+	
+	<!--  Items Controller -->
+	<definition name="items/new" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/items/new.jsp" />
+	</definition>
+	
+	<definition name="items/edit" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/items/edit.jsp" />
+	</definition>
+
+	<definition name="items/show" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/items/show.jsp" />
+	</definition>
+
+	<definition name="items/index" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/items/index.jsp" />
+	</definition>
+	
+	<!--  Item_types Controller -->
+	<definition name="item_types/new" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item_types/new.jsp" />
+	</definition>
+	
+	<definition name="item_types/edit" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item_types/edit.jsp" />
+	</definition>
+
+	<definition name="item_types/show" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item_types/show.jsp" />
+	</definition>
+
+	<definition name="item_types/index" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/item_types/index.jsp" />
+	</definition>	
+</tiles-definitions>

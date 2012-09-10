@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%p
+  %b Order:
+  = link_to "#{@order_item.order.name}", order_path(@order)
+%p
+  %b Item:
+  = link_to "#{@order_item.item.name}", item_path(@order_item.item)
+%p
+  %b Owner:
+  = @order_item.owner.first_name + ' ' + @order_item.owner.last_name
+%p
+  %b Note:
+  = @order_item.note
+%p
+  %b Quantity:
+  = @order_item.quantity
+
+%p
+  %b Unit Cost:
+  = "$ #{@order_item.item.price}"
+
+- unless @order_item.order.submitted
+  = link_to 'Edit', edit_order_order_item_path(@order, @order_item), :class => 'button gray'
+= link_to 'Back', order_order_items_path, :class => 'button gray'

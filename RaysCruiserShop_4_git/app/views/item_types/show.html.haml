@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @item_type.name
+%p
+  %b Description:
+  = @item_type.description
+
+= link_to 'Edit', edit_item_type_path(@item_type), :class => 'button gray'
+= link_to 'Back', item_types_path, :class => 'button gray'

@@ -1,0 +1,22 @@
+%h1 Listing item_types
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @item_types.each do |item_type|
+    %tr
+      %td= item_type.name
+      %td= item_type.description
+      %td= link_to 'Show', item_type, :class => 'button gray'
+      %td= link_to 'Edit', edit_item_type_path(item_type), :class => 'button gray'
+      %td= link_to 'Remove', item_type, :confirm => 'Are you sure?', :method => :delete, :class => 'button gray'
+    %tr
+      %td{:colspan =>'5'}= '&nbsp;'.html_safe
+%br
+
+= link_to 'New Item type', new_item_type_path, :class => 'button'

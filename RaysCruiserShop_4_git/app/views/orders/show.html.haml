@@ -1,0 +1,73 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @order.name
+%p
+  %b Description:
+  = @order.description
+%p
+  %b Owner:
+  = "#{@order.owner.first_name} #{@order.owner.last_name}"
+
+%p
+  %b Book Amount:
+  = "$ #{@book_amount}"
+
+- unless !@order.submitted
+  %p
+    %b Discount Received:
+    = "#{Salesforce::Cruiser_Order__c.find(@order.sf_cruiser_order_id).Discount__c} %"
+  %h2
+    %b Invoice Amount:
+    = "$ #{Salesforce::Cruiser_Order__c.find(@order.sf_cruiser_order_id).Invoice_Amount__c}"
+
+= link_to 'Show Order Details', order_order_items_path(@order), :class => 'button gray'
+= link_to 'Back', orders_path, :class => 'button gray'
+
+- unless @order.submitted
+  = link_to 'Edit', edit_order_path(@order), :class => 'button gray'
+  = link_to 'Submit', order_submit_path(@order), :class => 'button'
+- else
+  = link_to 'Submitted', order_path(), :onclick =>'return false', :class => 'button disabled'
+  %p
+  %hr/
+  = form_tag order_chatter_update_path(@order) do
+    = hidden_field_tag 'junk', '12341234'
+    = label_tag 'Question'
+    = text_field_tag 'Question', '', :size => 60
+    = submit_tag 'Ask', {:class => 'button'}
+  %br/
+  =link_to "Show Delivery Date", "#", {:onclick => "javascript: show_delivery_date('#display_time_div')", :class => 'button gray'}
+  %br/
+  %br/
+  #display_time_div
+  :javascript
+    function show_delivery_date (div_id) {
+      $.ajax({
+          type : "Get",
+          url : "/orders/#{@order.id}/show_delivery",
+          success : function(data){
+              $('#display_time_div').html(data);
+              },
+          error : function(httpReq,status,exception){
+              alert(status+" "+exception);
+          }
+      });
+    }
+  %hr/
+
+- unless @feed_items.nil?
+  %h3 Your Questions
+  %table
+    %tr
+      %th= 'Time'
+      %th= 'Message'
+    - @feed_items.each do |item|
+      %tr
+        %td=  Time.parse(item.instance_variable_get("@raw_hash")['createdDate']).asctime
+        %td= item.instance_variable_get("@raw_hash")['body']['text']
+      - item.instance_variable_get("@raw_hash")['comments']['comments'].each do |comment|
+        %tr
+          %td{:style => "font-size: 12pxl; font-style:italic; font-weight:bold"}  &nbsp;&nbsp;&nbsp;&nbsp;  Response:
+          %td= Time.parse(comment['createdDate']).asctime + "   " + comment['body']['text']

@@ -1,0 +1,12 @@
+client_id: 3MVG9yZ.WNe6byQA2aW7e.FsotxUROGu5t3puJKg2hhZ6a5ezxYvJBS2yq14e1Hb1sBYVgzP19hMl9_9q1ihw
+client_secret: 4567542311149564158
+
+version: 25.0
+debugging: true
+sobject_module: Salesforce    # There is a defect here, UserRole is always materialized into the current name space.
+#Anytime, The name of the class is UxxxUxx, it will always get materialized into the current namespace.
+
+# username + password see 'environment.rb'
+# This is tied to my raygao2000 account.
+#  client.verify_mode = OpenSSL::SSL::VERIFY_NONE
+# callback -> http://localhost:3000/authenticate

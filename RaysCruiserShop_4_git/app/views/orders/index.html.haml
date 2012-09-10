@@ -1,0 +1,33 @@
+%h1 Listing Orders
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Owner
+    %th
+    %th
+    %th
+    %th
+
+  - @orders.each do |order|
+    %tr
+      %td= order.name
+      %td= order.description
+      %td= "#{order.owner.first_name} #{order.owner.last_name}"
+      %td= link_to 'Show', order, :class => 'button gray'
+
+      - unless order.submitted
+        %td= link_to 'Edit', edit_order_path(order), :class => 'button gray'
+        %td= link_to 'Remove', order, :confirm => 'Are you sure?', :method => :delete, :class => 'button gray'
+        %td= link_to 'Submit', order_submit_path(order), :class => 'button'
+      - else
+        %td{:colspan =>'3'}= link_to 'Submitted', orders_path(), :onclick =>'return false', :class => 'button disabled'
+
+
+    %tr
+      %td{:colspan =>'5'}= '&nbsp;'.html_safe
+
+%br
+
+= link_to 'New Order', new_order_path, :class => 'button'

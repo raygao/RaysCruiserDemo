@@ -1,0 +1,61 @@
+%h2{:style => "font-size: 14px"}
+  Items in
+  %span{:style => 'font-size: 24px'}= link_to "#{@order.name}", order_path(@order)
+%p
+  %b Book Amount:
+  = "$ #{@book_amount}"
+%hr/
+
+%table
+  %tr
+    %th Item Name
+    %th Quantity
+    %th Unit Cost
+    %th Item Cost
+    %th
+    %th
+    %th
+
+  - @order_items.each do |order_item|
+    %tr
+      %td= order_item.item.name
+      %td= order_item.quantity
+      %td= "$ #{order_item.item.price}"
+      %td= "$ #{order_item.item.price * order_item.quantity}"
+      %td= link_to 'Show', order_order_item_path(@order, order_item), :class => 'button gray'
+      - unless order_item.order.submitted
+        %td= link_to 'Edit', edit_order_order_item_path(@order, order_item), :class => 'button gray'
+        %td= link_to 'Remove', order_order_item_path(@order, order_item), :confirm => "Do you really want to remove '#{order_item.item.name}'?", :method => :delete, :class => 'button gray'
+    %tr
+      %td{:colspan =>'5'}= '&nbsp;'.html_safe
+
+%br
+
+%hr/
+%br/
+%h2 Add more Items to "#{@order.name}"
+-unless @available_items.nil? || @available_items.empty?
+  %table
+    %tr
+      %th Name
+      %th Image
+      %th Price
+      %th Item type
+      %th Remaining Quantity
+      %th
+      %th
+
+    - @available_items.each do |item|
+      %tr
+        %td= item.name
+        %td= image_tag item.image_url(:thumb).to_s
+        %td= "$" + item.price.to_s
+        %td= item.item_type.name
+        %td= item.quantity
+        %td= link_to 'Show', item, :class => 'button gray'
+        - unless @order.submitted
+          %td= link_to 'Add to Order', new_order_order_item_path(:item_id => item.id), :class => 'button gray'
+    %tr
+      %td{:colspan =>'5'}= '&nbsp;'.html_safe
+
+%br

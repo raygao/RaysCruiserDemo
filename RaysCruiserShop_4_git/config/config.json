@@ -1,0 +1,70 @@
+{
+    "development":{
+    	"sendgrid":{
+        	"username":"<username>",
+        	"password":"<password>"
+    	},	
+        "aws": {
+            "key": "<key>",
+            "secret": "<secret>"
+        },
+        "ssl_path":"/Syst92.Library/OpenSSL",
+        /* Email setting for devise (forgot password) callback */
+        "callback_host":"http://localhost:3000",
+        "sap_server": {
+            "host": "http://127.0.0.1",
+            "port": "8080"
+        }
+    },
+    "staging":{
+        "sendgrid":{
+        	"username":"<username>",
+        	"password":"<password>"
+    	},	
+        "aws": {
+            "key": "<key>",
+            "secret": "<secret>"
+        },
+        "ssl_path":"/Syst92.Library/OpenSSL",
+        /* Email setting for devise (forgot password) callback */
+        "callback_host":"http://localhost:3000",
+        "sap_server": {
+            "host": "http://127.0.0.1",
+            "port": "8080"
+        }
+    },
+    "production":{
+		"sendgrid":{
+        	"username":"<username>",
+        	"password":"<password>"
+    	},	
+        "aws": {
+            "key": "<key>",
+            "secret": "<secret>"
+        },
+        "ssl_path":"/Syst92.Library/OpenSSL",
+        /* Email setting for devise (forgot password) callback */
+        "callback_host":"http://localhost:3000",
+        "sap_server": {
+            "host": "http://127.0.0.1",
+            "port": "8080"
+        }
+    },
+    "test":{
+		"sendgrid":{
+        	"username":"<username>",
+        	"password":"<password>"
+    	},	
+        "aws": {
+            "key": "<key>",
+            "secret": "<secret>"
+        },
+        "ssl_path":"/Syst92.Library/OpenSSL",
+        /* Email setting for devise (forgot password) callback */
+        "callback_host":"http://localhost:3000",
+        "sap_server": {
+            "host": "http://127.0.0.1",
+            "port": "8080"
+        }
+    }
+}
